@@ -12,7 +12,7 @@ $\dot{x}_i = v_i$
 $\dot{v}_i = F_i/m_i$
 
 ## Algorithm 1: Social Force Model (SFM)$^{[1]}$
-![SFM_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_3.gif)
+![SFM_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_3.gif) ![SFM_8agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_8.gif)
 
 SFM is a reactive force based approach to local navigation. The control input to the robot is a reactive force where the robot follows an attractive force to reach the goal while locally reacts to the its neighbors/obstalces within its sensing radius. 
 
@@ -47,8 +47,6 @@ parameters used in this simulation
 * $k = 1.2\times 10^5$
 * $\kappa = 2.4 \times 10^5$
 
-
-
 ### Advantages
 * The SFM approach is relatively fast and simple to implement when simulating large number robots/agents such as a crowd behaviour
 * The control law accounts for various physcal phenomenon experienced by the robot such as body forces and friction
@@ -59,7 +57,9 @@ parameters used in this simulation
 * The robot mimics a particle like behavior leading to non smooth control inputs
 * Cannot guarantee collision-free motion
 
-## Algorithm 2: Time to Collision (TTC)$^{[2]}$
+## Algorithm 2: Time to Collision (TTC)
+![TTC_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_3.gif) ![TTC_8agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_8.gif)
+
 TTC is a predcitive force based approach to local navigation. The control to the robot is a reactive force. However, unline SFM, the repulsive forces are calculated by predciting future collisions
 
 The control input $F_i$ for agent $i$ is computed as follows:
@@ -84,19 +84,48 @@ parameters used in this simulation
 * $\tau_H = 4$
 
 ### Advantages
-* The TTC approach is also relavitely fast and can very easy to implement.
+* The TTC approach is very fast and can very easy to implement.
 * The control law is predictive in nature and leads to a smooth avoidance motion 
 * The robots behave in a natural way while avoidance neighbours/obstalces
 
 ### Disadvantages
 * The prediction model assumes that its neibhours/obstacles move linearly 
-* Very small simulation timestep $\Delta t$ for numerical stability
+* Very small simulation timestep $\Delta t$ for numerical stability which can be computationally expensive
 * Cannot guarantee collision-free motion
 
 ## Algorithm 3: Velocity Obstalces (VO)$^{[3]}$
-VO is a predcitive velocity based approach where the 
+![VO_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_3.gif)
+![VO_8agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_8.gif)
+
+VO is a predcitive velocity based approach for local navigation. The control input is designed as the best candidate velocity from a uniform distribution of admissible velocities. The best candidate is the one which minimizes the following cost
+
+$V(x) = \alpha||\mathbf{v}_{cand} - \mathbf{v}_{goal}|| + \beta||\mathbf{v}_{cand} - \mathbf{v}|| + \frac{\gamma}{\tau_{min}}$
+
+where $||\mathbf{v}_{cand} - \mathbf{v}_{goal}||$ ensures the candidate velocity is close to the desired goal velocity, $||\mathbf{v}_{cand} - \mathbf{v}||$ selects the candidate velocity which is close to the robot's current velocity and $\frac{\gamma}{\tau_{min}}$ reprents the risk of collisions. 
+
+The candidate velocities are sampled uniformly from a disk of admissible velocities and $\tau_{min}$ is the minimum time to collision with other neighbors for each candidate velocity. The goal velocity $\mathbf{v}_g$ is computed as the unit vector pointing from the robots current position and the goal position scaled by the robot's velocity $\mathbf{v}$
+
+### Simulation setup
+parameters used in this simulation
+* $m = 1$
+* $r_i = 2$
+* $d_h = 10$
+* $v_{max} = 1.3$
+* $n_{samples} = 200
+* $\Delta t = 0.1$ 
+
+### Advantages
+* It plan directly in the velocity space
+* Collision avoidance using VO can be formulated as an optimization problem
+* It can be robust to uncertainty
+
+### Disadvantages
+* VO relies on sampling candidate velocities and hence slow for large number of samples
+* Cannot guarantee collision free motion
 
 ## References
 [1] Helbing, Dirk, Illés Farkas, and Tamas Vicsek. "Simulating dynamical features of escape panic." Nature 407.6803 (2000): 487-490.
 
 [2] Davis, Bobby, Ioannis Karamouzas, and Stephen J. Guy. "NH-TTC: A gradient-based framework for generalized anticipatory collision avoidance."
+
+[3] Van den Berg, Jur, Ming Lin, and Dinesh Manocha. "Reciprocal velocity obstacles for real-time multi-agent navigation." 2008 IEEE international conference on robotics and automation. Ieee, 2008.
