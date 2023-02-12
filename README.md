@@ -58,7 +58,12 @@ parameters used in this simulation
 * Cannot guarantee collision-free motion
 
 ## Algorithm 2: Time to Collision (TTC)
-![TTC_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_3.gif) ![TTC_8agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_8.gif)
+<p align="center">
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_3.gif width="25%" height="100%"> 
+
+
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_8.gif width="25%" height="25%">
+</p>
 
 TTC is a predcitive force based approach to local navigation. The control to the robot is a reactive force. However, unline SFM, the repulsive forces are calculated by predciting future collisions
 
