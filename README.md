@@ -11,7 +11,7 @@ $\dot{x}_i = v_i$
 
 $\dot{v}_i = F_i/m_i$
 
-## Algorithm 1: Social Force Model (SFM)$^{[1]}$
+## Algorithm 1: Social Force Model (SFM)$
 <p align="center">
 <img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_3.gif> 
 <img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_8.gif>
