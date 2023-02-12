@@ -12,7 +12,10 @@ $\dot{x}_i = v_i$
 $\dot{v}_i = F_i/m_i$
 
 ## Algorithm 1: Social Force Model (SFM)$^{[1]}$
-![SFM_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_3.gif) ![SFM_8agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_8.gif)
+<p align="center">
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_3.gif> 
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_8.gif>
+<\p>
 
 SFM is a reactive force based approach to local navigation. The control input to the robot is a reactive force where the robot follows an attractive force to reach the goal while locally reacts to the its neighbors/obstalces within its sensing radius. 
 
@@ -59,10 +62,8 @@ parameters used in this simulation
 
 ## Algorithm 2: Time to Collision (TTC)
 <p align="center">
-<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_3.gif width="25%" height="100%"> 
-
-
-<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_8.gif width="25%" height="25%">
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_3.gif> 
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/TTC_8.gif>
 </p>
 
 TTC is a predcitive force based approach to local navigation. The control to the robot is a reactive force. However, unline SFM, the repulsive forces are calculated by predciting future collisions
@@ -99,8 +100,10 @@ parameters used in this simulation
 * Cannot guarantee collision-free motion
 
 ## Algorithm 3: Velocity Obstalces (VO)$^{[3]}$
-![VO_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_3.gif)
-![VO_8agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_8.gif)
+<p align="center">
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_3.gif>
+<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_8.gif>
+</p>
 
 VO is a predcitive velocity based approach for local navigation. The control input is designed as the best candidate velocity from a uniform distribution of admissible velocities. The best candidate is the one which minimizes the following cost
 
