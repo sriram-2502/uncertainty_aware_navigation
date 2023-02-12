@@ -102,8 +102,8 @@ parameters used in this simulation
 ## Algorithm 3: Velocity Obstalces (VO)$^{[3]}$
 <p align="center">
 <img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_3.gif>
-<img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_8.gif>
 </p>
+
 
 VO is a predcitive velocity based approach for local navigation. The control input is designed as the best candidate velocity from a uniform distribution of admissible velocities. The best candidate is the one which minimizes the following cost
 
