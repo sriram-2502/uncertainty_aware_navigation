@@ -151,7 +151,7 @@ class TTCAgent(AbstractAgent):
         self.dhor = dhor # the sensing radius
         self.ksi = ksi # the relaxation time used to compute the goal force
         self.timehor = timehor # the time horizon for computing avoidance forces
-        self.epsilon = 0.2 # the error in sensed velocities
+        self.epsilon = 0 # the error in sensed velocities
         self.F = np.zeros(2) # the total force acting on the agent
         self.maxF = maxF # the maximum force that can be applied to the agent
 
@@ -257,7 +257,7 @@ class VOAgent(AbstractAgent):
         self.atGoal = False # has the agent reached its goal?
         self.goalRadiusSq = goalRadius*goalRadius # parameter to determine if agent is close to the goal
         self.dhor = dhor # the sensing radius
-        self.epsilon = epsilon # the error in sensed velocities
+        self.epsilon = 0.2 # the error in sensed velocities
         self.vnew = np.zeros(2) # the new velocity of the agent  
    
     def computeAction(self, neighbors=[]):
