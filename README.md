@@ -12,6 +12,8 @@ $\dot{x}_i = v_i$
 $\dot{v}_i = F_i/m_i$
 
 ## Algorithm 1: Social Force Model (SFM)$^{[1]}$
+![SFM_3agents](https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/SFM_3.gif)
+
 SFM is a reactive force based approach to local navigation. The control input to the robot is a reactive force where the robot follows an attractive force to reach the goal while locally reacts to the its neighbors/obstalces within its sensing radius. 
 
 The control input $F_i$ for agent $i$ is computed as follows:
