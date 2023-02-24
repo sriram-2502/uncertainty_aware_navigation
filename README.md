@@ -99,7 +99,7 @@ parameters used in this simulation
 * Very small simulation timestep $\Delta t$ for numerical stability which can be computationally expensive
 * Cannot guarantee collision-free motion
 
-## Algorithm 3: Velocity Obstalces (VO)$^{[3]}$
+## Algorithm 3: Velocity Obstalces (VO)
 <p align="center">
 <img src=https://github.com/sriram-2502/uncertainty_aware_navigation/blob/master/gif/VO_3.gif>
 </p>
